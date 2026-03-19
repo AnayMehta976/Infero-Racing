@@ -1,0 +1,492 @@
+:root {
+    --bg-dark: #0a0a0a;
+    --text-main: #f0f0f0;
+    --text-muted: #888888;
+    --accent-red: #ff2a00;
+    --accent-orange: #ff6600;
+    --accent-yellow: #ffcc00;
+
+    --font-heading: 'Syncopate', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none;
+    /* Custom cursor */
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    /* Carbon Fiber Pattern */
+    background-image:
+        radial-gradient(#1a1a1a 15%, transparent 16%),
+        radial-gradient(#1a1a1a 15%, transparent 16%);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+}
+
+/* Custom Cursor */
+.cursor {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-red);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s;
+}
+
+.cursor-follower {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--accent-orange);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease-out;
+}
+
+h1,
+h2,
+h3,
+.logo {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.highlight {
+    color: var(--accent-red);
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 42, 0, 0.2);
+}
+
+.logo {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-orange);
+}
+
+.nav-btn {
+    background: transparent;
+    border: 1px solid var(--accent-red);
+    color: var(--accent-red);
+    padding: 0.5rem 1.5rem;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    transition: all 0.3s;
+}
+
+.nav-btn:hover {
+    background: var(--accent-red);
+    color: var(--bg-dark);
+}
+
+/* Section Common */
+section {
+    min-height: 100vh;
+    padding: 100px 4rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.section-header {
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+}
+
+/* 1. Hero Section */
+.hero {
+    height: 100vh;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    filter: brightness(0.4);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 6rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+    letter-spacing: -2px;
+    background: linear-gradient(90deg, #fff, #888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-tagline {
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    color: var(--accent-orange);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.mouse {
+    width: 26px;
+    height: 40px;
+    border: 2px solid var(--text-main);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+}
+
+.wheel {
+    width: 4px;
+    height: 8px;
+    background: var(--accent-red);
+    border-radius: 2px;
+    animation: scroll 1.5s infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(15px);
+        opacity: 0;
+    }
+}
+
+.scroll-indicator span {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    font-family: var(--font-heading);
+}
+
+/* 2. Car Design Section */
+.car-design {
+    display: flex;
+    align-items: center;
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.car-container {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f1-car-img {
+    width: 80%;
+    max-width: 1200px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 30px rgba(255, 42, 0, 0.2));
+}
+
+.part-info {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    /* Animated later */
+}
+
+.part-info .line {
+    width: 2px;
+    height: 50px;
+    background: var(--accent-red);
+    margin-bottom: 10px;
+}
+
+.info-box {
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255, 102, 0, 0.3);
+    padding: 1rem;
+    width: 250px;
+    backdrop-filter: blur(5px);
+}
+
+.info-box h3 {
+    font-size: 1rem;
+    color: var(--accent-yellow);
+    margin-bottom: 0.5rem;
+}
+
+.info-box p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.front-wing {
+    top: 20%;
+    left: 15%;
+    align-items: flex-start;
+}
+
+.wheels {
+    bottom: 20%;
+    left: 45%;
+    align-items: center;
+}
+
+.rear-wing {
+    top: 15%;
+    right: 15%;
+    align-items: flex-end;
+}
+
+/* 3. Engineering Portfolio */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 72%;
+    background: linear-gradient(to bottom, var(--accent-red), var(--accent-orange));
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 50%;
+    position: relative;
+    margin-bottom: 4rem;
+}
+
+.timeline-item.right {
+    justify-content: flex-start;
+    padding-right: 0;
+    padding-left: 50%;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    background: var(--accent-yellow);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-yellow);
+}
+
+.timeline-content {
+    width: 80%;
+    padding: 0 2rem;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.timeline-content h3 {
+    color: var(--accent-orange);
+    margin-bottom: 0.5rem;
+}
+
+/* 4. Management & Strategy */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.card {
+    background: linear-gradient(135deg, rgba(30, 30, 30, 0.9), rgba(10, 10, 10, 0.9));
+    border: 1px solid rgba(255, 42, 0, 0.1);
+    padding: 3rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-red);
+}
+
+.card-icon {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    color: rgba(255, 102, 0, 0.1);
+    font-weight: 700;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+}
+
+/* 5. Team Section */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.team-grid> :last-child {
+    grid-column: 2 / 4;
+    justify-self: center;
+}
+
+.team-member {
+    text-align: center;
+    opacity: 0;
+    /* GSAP reveals */
+}
+
+.member-img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: #1a1a1a;
+    border-bottom: 3px solid var(--accent-red);
+    margin-bottom: 1.5rem;
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+}
+
+.team-member:hover .member-img {
+    filter: grayscale(0%);
+}
+
+.team-member h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.team-member p {
+    color: var(--accent-orange);
+    font-size: 0.9rem;
+}
+
+/* 6. Sponsors */
+.sponsors {
+    min-height: 30vh;
+    padding: 0;
+    background: #fff;
+    color: #000;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.sponsor-track {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    white-space: nowrap;
+}
+
+.sponsor-logo {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: #aaa;
+    transition: color 0.3s;
+}
+
+.sponsor-logo:hover {
+    color: #000;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    border-top: 1px solid #1a1a1a;
+}
