@@ -535,6 +535,47 @@ button { font: inherit; color: inherit; }
 .group img { width: 100%; aspect-ratio: 16 / 8; object-fit: cover; object-position: 50% 62%; }
 .group figcaption { padding: 14px 18px; font-family: var(--narrow); font-weight: 700; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-top: var(--bw) solid var(--ink); background: var(--cream); }
 
+/* ---------- Portfolios ---------- */
+.pf-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: clamp(18px, 2.4vw, 28px); }
+.pf-wide-3 { grid-column: span 2; }
+.pf-wide-2 { grid-column: span 3; }
+.pf { position: relative; display: flex; }
+.pf__card { position: relative; z-index: 1; display: flex; flex-direction: column; width: 100%; color: var(--ink); }
+/* a stack of pages behind each card */
+.pf::before, .pf::after {
+  content: ""; position: absolute; inset: 0; z-index: 0;
+  border: var(--bw) solid var(--ink); border-radius: var(--r); background: var(--cream);
+  transition: transform .3s ease;
+}
+.pf::before { transform: translate(6px, 6px) rotate(1.2deg); }
+.pf::after { transform: translate(12px, 10px) rotate(2.4deg); background: var(--amber); z-index: -1; }
+.pf { isolation: isolate; }
+.pf:hover::before { transform: translate(10px, 8px) rotate(2.4deg); }
+.pf:hover::after { transform: translate(20px, 14px) rotate(4.5deg); }
+.pf__cover {
+  display: flex; align-items: center; justify-content: center; aspect-ratio: 16 / 10;
+  margin: 12px 12px 0; padding: 12px; border: var(--bw) solid var(--ink); border-radius: var(--r-sm);
+  background: var(--paper); overflow: hidden;
+}
+.pf__cover img { height: 100%; width: auto; max-width: 100%; object-fit: contain; min-height: 0; box-shadow: 4px 4px 0 var(--ink); transition: transform .4s ease; }
+.pf:hover .pf__cover img { transform: translateY(-4px) rotate(-1.2deg) scale(1.03); }
+.pf__body { padding: 16px 18px 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.pf__body h3 { margin: 0; font-family: var(--display); text-transform: uppercase; font-size: clamp(1.6rem, 2.4vw, 2.1rem); line-height: .95; }
+.pf__body p { margin: 0; font-size: .97rem; }
+.pf__meta { font-family: var(--narrow); font-weight: 700; font-size: .92rem !important; }
+.pf__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 10px; }
+.pf__btn { min-height: 46px; padding: 8px 20px; font-size: .98rem; }
+
+@media (max-width: 899px) {
+  .pf-grid { grid-template-columns: 1fr 1fr; }
+  .pf-wide-3, .pf-wide-2 { grid-column: span 1; }
+  .pf:last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .pf-grid { grid-template-columns: 1fr; }
+  .pf::after { transform: translate(8px, 8px) rotate(1.6deg); }
+}
+
 /* ---------- Footer ---------- */
 .footer { background: var(--orange); border-top: var(--bw) solid var(--ink); overflow: hidden; padding: clamp(60px, 9vw, 110px) 0 28px; }
 .footer__words { font-family: var(--display); text-transform: uppercase; line-height: .82; font-size: clamp(4rem, 17vw, 16rem); white-space: nowrap; margin: 0; }

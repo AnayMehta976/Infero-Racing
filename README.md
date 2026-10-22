@@ -36,6 +36,7 @@
 7. [Run it locally](#-run-it-locally)
 8. [Project structure](#-project-structure)
 9. [Deployment](#-deployment)
+10. [Portfolios](#-portfolios)
 
 ---
 
@@ -183,6 +184,7 @@ Infero-Racing/
 │   └── lights-out.js     # The Lights Out reaction trainer
 └── assets/
     ├── img/              # Car renders, team photos, sponsor logos, CFD and CAD images (WebP)
+    ├── portfolios/       # Our competition portfolios, drawings and renders (PDF)
     ├── fonts/            # Anton, Archivo, Archivo Narrow (WOFF2)
     └── vendor/           # GSAP, ScrollTrigger, Lenis
 ```
@@ -192,6 +194,20 @@ Infero-Racing/
 ## 🚀 Deployment
 
 The site deploys automatically to **[infero-racing.vercel.app](https://infero-racing.vercel.app)** on every push to `main`. It's a static site, so no build settings are needed.
+
+---
+
+## 📚 Portfolios
+
+Read our full STEM Racing India submissions (also linked at the end of the website):
+
+| Document | Pages |
+|:---------|------:|
+| [Design & Engineering Portfolio](assets/portfolios/inferno-racing-design-engineering-portfolio.pdf) | 11 |
+| [Enterprise Portfolio](assets/portfolios/inferno-racing-enterprise-portfolio.pdf) | 12 |
+| [Management Portfolio](assets/portfolios/inferno-racing-management-portfolio.pdf) | 7 |
+| [Car Renders](assets/portfolios/inferno-racing-renders.pdf) | 9 |
+| [Engineering Drawings](assets/portfolios/inferno-racing-engineering-drawings.pdf) | 9 |
 
 ---
 

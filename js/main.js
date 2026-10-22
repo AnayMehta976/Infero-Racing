@@ -288,6 +288,15 @@
       gsap.fromTo(el, { xPercent: dir * -25 }, { xPercent: dir * 8, ease: "none", scrollTrigger: { trigger: ".footer", start: "top bottom", end: "bottom bottom", scrub: true } });
     });
 
+    /* Portfolios: pages get dealt onto the table. */
+    gsap.utils.toArray("[data-pf]").forEach(function (card, i) {
+      gsap.from(card, {
+        y: 120, x: c.desktop ? (i % 3 - 1) * 40 : 0, rotation: [-8, 5, -4, 6, -6][i % 5], opacity: 0,
+        duration: 0.85, ease: "back.out(1.4)", delay: (i % 3) * 0.08,
+        scrollTrigger: { trigger: card, start: "top 92%" }
+      });
+    });
+
     /* Section headings rise. */
     gsap.utils.toArray(".h-section, .h-sub").forEach(function (h) {
       gsap.from(h, { yPercent: 40, opacity: 0, skewY: 4, duration: 0.8, ease: "power4.out", scrollTrigger: { trigger: h, start: "top 88%" } });
