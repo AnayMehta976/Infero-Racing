@@ -233,10 +233,10 @@
 
           <ol class="specs" data-specs>
             <li class="spec"><h3>Body <small>22 g</small></h3><p>Shark-inspired: a narrow front, wide midsection and tapered rear. G1-continuous surfaces checked with zebra analysis.</p></li>
-            <li class="spec"><h3>Nose cone <small>0.15 N</small></h3><p>High-nose idea from the 1992 Benetton B192, profile from a kingfisher’s beak. Lowest-drag of three designs.</p></li>
+            <li class="spec"><h3>Nose cone <small>0.15 N</small></h3><p>High-nose idea from the 1992 Benetton B192, profile from a kingfisher’s beak. Design 3 of 3: lowest drag and fully within the rules.</p></li>
             <li class="spec"><h3>Front wing <small>flat mainplane</small></h3><p>A simple, stable mainplane with endplates that keep lift-inducing vortices off the wheels.</p></li>
             <li class="spec"><h3>Halo &amp; helmet <small>9.5 g</small></h3><p>Supplied parts bonded into a recess with no dimensional change, joined to the body with G1 continuity.</p></li>
-            <li class="spec"><h3>Rear wing <small>3.64 g</small></h3><p>Teardrop support structure. The V2 wing was over-built, so V3 was thinned towards a 1.5 target safety factor.</p></li>
+            <li class="spec"><h3>Rear wing <small>3.64 g</small></h3><p>Teardrop support structure. The V2 wing was over-built, so V3 was thinned to a 1.48 safety factor against a 1.5 target.</p></li>
             <li class="spec"><h3>Wheels <small>V4</small></h3><p>Four iterations cut moment of inertia from 691 to 337, a 51% drop, while staying rigid under a 50 N load.</p></li>
           </ol>
         </div>
@@ -322,26 +322,25 @@
           </article>
 
           <article class="panel">
-            <div class="panel__media panel__media--trio">
-              <figure><img src="assets/img/eng-nose-1.webp" alt="Nose cone design 1" loading="lazy"><figcaption>Design 1, 0.17 N</figcaption></figure>
-              <figure><img src="assets/img/eng-nose-2.webp" alt="Nose cone design 2" loading="lazy"><figcaption>Design 2, 0.17 N</figcaption></figure>
-              <figure><img src="assets/img/eng-nose-3.webp" alt="Nose cone design 3, the final choice" loading="lazy"><figcaption>Design 3, 0.15 N</figcaption></figure>
+            <div class="panel__media panel__media--duo">
+              <figure><img src="assets/img/eng-nose-final.webp" alt="Final nose cone, Design 3, three-quarter view with the front wing and a single vertical joint" loading="lazy" width="441" height="228"><figcaption>Design 3, three-quarter view</figcaption></figure>
+              <figure><img src="assets/img/eng-nose-final-front.webp" alt="Final nose cone, Design 3, front view showing the shorter joint and reshaped endplates" loading="lazy" width="545" height="218"><figcaption>Design 3, front view</figcaption></figure>
             </div>
             <div class="panel__body">
               <span class="panel__num">04 Nose cone</span>
               <h3>Three designs, one winner</h3>
-              <p>Each nose cone went through FEA and CFD. Design 3 tunnels air under the car, had the lowest drag and a minimum safety factor of 12.1, so it went on the nationals car.</p>
-              <div class="panel__stats"><span class="stat-chip stat-chip--ink">0.15 N drag</span><span class="stat-chip">SF 12.1</span></div>
+              <p>All three nose cones went through FEA and CFD. Design 3 uses one shorter vertical joint and a taller front wing, so air flows cleanly above and below it. It had the lowest drag and was the only one fully within regulation T8.7.</p>
+              <div class="panel__stats"><span class="stat-chip stat-chip--ink">0.15 N drag</span><span class="stat-chip">SF 9.9</span><span class="stat-chip">T8.7 compliant</span></div>
             </div>
           </article>
 
           <article class="panel">
-            <div class="panel__media"><img src="assets/img/eng-wing-3.webp" alt="CAD model of the final rear wing and its support" loading="lazy" width="700" height="279"></div>
+            <div class="panel__media"><img src="assets/img/eng-rearwing-v3.webp" alt="FEA safety factor result for the V3 rear wing in Fusion 360, mostly in range" loading="lazy" width="1171" height="536"></div>
             <div class="panel__body">
               <span class="panel__num">05 Rear wing</span>
               <h3>Strong enough, and no stronger</h3>
-              <p>The V2 wing came back with a safety factor of 18.2, far more material than it needed. For V3 we thinned the wing and its support towards our 1.5 target to save mass.</p>
-              <div class="panel__stats"><span class="stat-chip">SF 18.2 → ~1.5</span><span class="stat-chip">3.64 g</span></div>
+              <p>V1 came back with a safety factor of 7.8 and V2 with 18.2, far more material than the wing needed. For V3 we thinned the wing and its supports until FEA showed 1.48, right on our 1.5 target.</p>
+              <div class="panel__stats"><span class="stat-chip stat-chip--ink">SF 18.2 → 1.48</span><span class="stat-chip">3.64 g</span></div>
             </div>
           </article>
 
@@ -410,7 +409,7 @@
           <div class="number"><b><span data-count="0.35" data-decimals="2">0.35</span> N</b><span>total drag on the IR-11</span></div>
           <div class="number"><b><span data-count="55.7" data-decimals="1">55.7</span> g</b><span>car mass before the power pack</span></div>
           <div class="number"><b><span data-count="51" data-suffix="%">51%</span></b><span>less wheel inertia than V1</span></div>
-          <div class="number"><b><span data-count="12.1" data-decimals="1">12.1</span></b><span>nose cone safety factor</span></div>
+          <div class="number"><b><span data-count="1.48" data-decimals="2">1.48</span></b><span>rear wing safety factor, on a 1.5 target</span></div>
           <div class="number"><b>₹<span data-count="75000" data-format>75,000</span></b><span>raised from 11 partners</span></div>
           <div class="number"><b><span data-count="27892" data-format>27,892</span></b><span>accounts reached in 30 days</span></div>
           <div class="number"><b><span data-count="8">8</span></b><span>deliverables, from two cars to a pit display</span></div>

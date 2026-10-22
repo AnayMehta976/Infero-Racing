@@ -60,7 +60,7 @@ Designed in **Fusion 360**, simulated with **CFD**, and machined on a **CNC** fr
 |:--|:--|
 | **Total drag** | **0.35 N** in CFD at 22 m/s, down from 0.69 N on our first car (**−49%**) |
 | **Mass** | **55.7 g** before the power pack |
-| **Nose cone** | Design 3 of 3: 0.15 N drag, minimum safety factor 12.1 |
+| **Nose cone** | Design 3 of 3: 0.15 N drag, safety factor 9.9, the only design fully within regulation T8.7 |
 | **Wheels** | V4: moment of inertia cut from 691 to 337 (**−51%**), passing a 50 N load test |
 | **Body** | Shark-inspired shape, G1-continuous surfaces verified with zebra analysis |
 | **Inspiration** | Shark (body), kingfisher beak (nose profile), 1992 Benetton B192 (high nose), water droplet (rear-wing support) |
@@ -89,8 +89,8 @@ Designed in **Fusion 360**, simulated with **CFD**, and machined on a **CNC** fr
 1. **Research:** drag, wheel moment of inertia, tipping moment, rolling resistance and wheel wake.
 2. **Design inspiration:** biomimicry and F1 history (shark, kingfisher, Benetton B192).
 3. **Car body:** zebra analysis to reach G1 continuity at the nose-to-body and halo-to-body joins.
-4. **Nose cone:** three designs tested in FEA and CFD; the lowest-drag one went on the nationals car.
-5. **Rear wing:** the V2 wing had a safety factor of 18.2, so V3 was thinned towards a 1.5 target to save mass.
+4. **Nose cone:** three designs tested in FEA and CFD; Design 3 had the lowest drag and was the only one fully within regulation T8.7, so it went on the nationals car.
+5. **Rear wing:** V1 had a safety factor of 7.8 and V2 18.2, far more material than needed, so V3 was thinned to 1.48 against a 1.5 target.
 6. **Wheels:** four iterations to cut inertia while staying rigid.
 7. **CNC:** three setups (top, bottom and side milling) with a 3 mm ball-nose end mill, about 3 h 35 min of toolpaths.
 8. **Testing:** full-car CFD and streamlines, then vernier calliper checks, a 200 g tether-guide pull test and a 3° incline roll test.

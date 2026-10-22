@@ -205,9 +205,10 @@
       gsap.to("[data-eng-progress]", { scaleX: 1, ease: "none",
         scrollTrigger: { trigger: ".eng__pin", start: "center center+=40", end: function () { return "+=" + dist(); }, scrub: true } });
       gsap.utils.toArray(".panel").forEach(function (p) {
-        gsap.from(p.querySelector(".panel__media img"), {
-          scale: 1.25, rotation: 3, ease: "none",
-          scrollTrigger: { trigger: p, containerAnimation: engTween, start: "left right", end: "center center", scrub: true }
+        // Wipe the image in from the left; it always ends fully visible, never cropped.
+        gsap.fromTo(p.querySelector(".panel__media"), { clipPath: "inset(0% 100% 0% 0%)" }, {
+          clipPath: "inset(0% 0% 0% 0%)", ease: "none",
+          scrollTrigger: { trigger: p, containerAnimation: engTween, start: "left right", end: "left 45%", scrub: true }
         });
         gsap.from(p, {
           rotation: 4, y: 40, ease: "none",
