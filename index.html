@@ -1,217 +1,683 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inferno Racing | Engineering Speed</title>
-
-    <!-- Fonts: Inter for reading, Syncopate for aggressive headings -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syncopate:wght@400;700&display=swap"
-        rel="stylesheet">
-
-    <!-- GSAP & Lenis CDNs -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inferno Racing – STEM Racing India Season 08</title>
+  <meta name="description" content="Inferno Racing (IR-11) from The Shishukunj International School, Indore. STEM Racing India Season 08 national finalists: Best Verbal Presentation, 4th fastest car nationally, Best R&D at the national qualifier.">
+  <meta name="theme-color" content="#FA5B14">
+  <meta property="og:title" content="Inferno Racing – Design. Develop. Dominate.">
+  <meta property="og:description" content="STEM Racing India national finalists from Indore. Best Verbal Presentation, 4th fastest car, Best R&D.">
+  <meta property="og:image" content="https://infero-racing.vercel.app/assets/img/og.jpg">
+  <meta property="og:url" content="https://infero-racing.vercel.app/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="preload" href="assets/fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/img/car-34.webp" as="image">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    // Play the start-lights intro once per visit, and never for reduced motion.
+    (function () {
+      var d = document.documentElement;
+      try {
+        if (matchMedia("(prefers-reduced-motion: reduce)").matches || sessionStorage.getItem("ir-intro")) d.classList.add("no-intro");
+      } catch (e) { d.classList.add("no-intro"); }
+    })();
+  </script>
 </head>
-
 <body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="star" viewBox="0 0 48 48">
+      <circle cx="24" cy="24" r="17" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M24 1 L27 21 L47 24 L27 27 L24 47 L21 27 L1 24 L21 21 Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="trophy" viewBox="0 0 64 64">
+      <path d="M18 6h28v14a14 14 0 0 1-28 0V6Z" fill="#F99527" stroke="#262424" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M18 11H8v5a10 10 0 0 0 10 10M46 11h10v5a10 10 0 0 1-10 10" fill="none" stroke="#262424" stroke-width="3"/>
+      <path d="M28 34h8v10h-8z" fill="#FA5B14" stroke="#262424" stroke-width="3"/>
+      <path d="M18 44h28v12H18z" fill="#262424" stroke="#262424" stroke-width="3" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
 
-    <!-- Custom Cursor -->
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="logo">INFERNO</div>
-        <div class="nav-links">
-            <a href="#car-design">Machine</a>
-            <a href="#engineering">Engineering</a>
-            <a href="#management">Strategy</a>
-            <a href="#team">Team</a>
+  <!-- Intro: five start lights, then lights out -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro__lights">
+      <div class="intro__pod"><i class="intro__bulb"></i><i class="intro__bulb"></i></div>
+      <div class="intro__pod"><i class="intro__bulb"></i><i class="intro__bulb"></i></div>
+      <div class="intro__pod"><i class="intro__bulb"></i><i class="intro__bulb"></i></div>
+      <div class="intro__pod"><i class="intro__bulb"></i><i class="intro__bulb"></i></div>
+      <div class="intro__pod"><i class="intro__bulb"></i><i class="intro__bulb"></i></div>
+    </div>
+    <button class="intro__skip" type="button" id="intro-skip">Skip intro</button>
+  </div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="nav__bar">
+      <a class="nav__logo" href="#top" aria-label="Inferno Racing, back to top">
+        <img src="assets/img/logo.webp" alt="" width="311" height="203">
+        <span>Inferno</span>
+      </a>
+      <nav aria-label="Sections">
+        <ul class="nav__links">
+          <li><a href="#results">Results</a></li>
+          <li><a href="#car">The car</a></li>
+          <li><a href="#engineering">Engineering</a></li>
+          <li><a href="#lights-out">Lights Out</a></li>
+          <li><a href="#season">Season</a></li>
+          <li><a href="#enterprise">Enterprise</a></li>
+          <li><a href="#team">Team</a></li>
+        </ul>
+      </nav>
+      <div style="display:flex;gap:8px;align-items:center">
+        <a class="btn nav__cta" href="https://www.instagram.com/infernoracingofficial/" target="_blank" rel="noopener">Instagram</a>
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+      <div class="lap" aria-hidden="true"><div class="lap__fill"></div></div>
+    </div>
+    <div class="nav__menu" id="nav-menu">
+      <a href="#results">Results</a>
+      <a href="#car">The car</a>
+      <a href="#engineering">Engineering</a>
+      <a href="#lights-out">Lights Out</a>
+      <a href="#season">Season</a>
+      <a href="#enterprise">Enterprise</a>
+      <a href="#team">Team</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="top" aria-label="Inferno Racing">
+      <div class="hero__word hero__word--top" aria-hidden="true">Inferno</div>
+      <div class="hero__word hero__word--bottom" aria-hidden="true">Racing</div>
+
+      <div class="hero__badge" aria-hidden="true">
+        <svg class="hero__badge-ring" viewBox="0 0 100 100">
+          <defs><path id="ring" d="M50 50 m-40 0 a40 40 0 1 1 80 0 a40 40 0 1 1 -80 0"/></defs>
+          <text font-family="Archivo Narrow, sans-serif" font-weight="700" font-size="8.4" letter-spacing="1.2" fill="#262424">
+            <textPath href="#ring">NATIONAL FINALISTS • CHENNAI 2026 • </textPath>
+          </text>
+        </svg>
+        <div>Car<b>14</b></div>
+      </div>
+
+      <div class="wrap hero__inner">
+        <div class="hero__stage">
+          <h1 class="sr-only">Inferno Racing, STEM Racing India Season 08</h1>
+          <div class="hero__car-wrap">
+            <img class="hero__flame" src="assets/img/flame.webp" alt="" width="1400" height="492">
+            <img class="hero__car" src="assets/img/car-34.webp" alt="Render of the Inferno Racing IR-11 car in orange and yellow with Lenovo branding" width="711" height="473">
+          </div>
         </div>
-        <button class="nav-btn">Sponsors</button>
-    </nav>
+        <div class="hero__meta">
+          <p class="hero__slogan"><span>Design.</span><span>Develop.</span><span>Dominate.</span></p>
+          <div class="hero__chips">
+            <span class="tag"><span class="dot"></span>STEM Racing India, Season 08</span>
+            <span class="tag">Team IR-11</span>
+            <span class="tag">The Shishukunj International School, Indore</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <main>
-        <!-- 1. Hero Section -->
-        <section class="hero" id="hero">
-            <div class="hero-bg" style="background-image: url('assets/hero_background.png')"></div>
-            <div class="hero-content">
-                <h1 class="hero-title">INFERNO <span class="highlight">RACING</span></h1>
-                <p class="hero-tagline">Engineering Speed. Igniting Innovation.</p>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track" data-marquee>
+        <span class="marquee__item">Best Verbal Presentation <svg><use href="#star"/></svg></span>
+        <span class="marquee__item">4th Fastest Car in India <svg><use href="#star"/></svg></span>
+        <span class="marquee__item">Best R&amp;D, National Qualifier <svg><use href="#star"/></svg></span>
+        <span class="marquee__item">National Finalists 2026 <svg><use href="#star"/></svg></span>
+      </div>
+    </div>
+
+    <!-- ================= RESULTS ================= -->
+    <section class="section" id="results">
+      <div class="wrap">
+        <div class="section__head">
+          <div>
+            <h2 class="display h-section">The results</h2>
+            <p class="lede">Our first season at national level. Five students, one car, and three results we’re proud of.</p>
+          </div>
+          <svg class="star" aria-hidden="true"><use href="#star"/></svg>
+        </div>
+
+        <div class="results__grid">
+          <article class="card card--orange award" data-stamp>
+            <svg class="award__trophy" aria-hidden="true"><use href="#trophy"/></svg>
+            <span class="award__stage">National Finals, Chennai</span>
+            <p class="award__big" aria-hidden="true">#1</p>
+            <h3 class="award__title">Best Verbal Presentation</h3>
+            <p class="award__where">Top verbal presentation in the country at STEM Racing India 2026.</p>
+          </article>
+          <article class="card card--ink award award--ink" data-stamp>
+            <svg class="award__trophy" aria-hidden="true"><use href="#trophy"/></svg>
+            <span class="award__stage">National Finals, Chennai</span>
+            <p class="award__big" aria-hidden="true">P4</p>
+            <h3 class="award__title">4th Fastest Car</h3>
+            <p class="award__where">Fourth fastest car in India, with the IR-11 running 0.35 N of drag.</p>
+          </article>
+          <article class="card card--amber award" data-stamp>
+            <svg class="award__trophy" aria-hidden="true"><use href="#trophy"/></svg>
+            <span class="award__stage">National Qualifier, Indore</span>
+            <p class="award__big" aria-hidden="true">R&amp;D</p>
+            <h3 class="award__title">Best R&amp;D</h3>
+            <p class="award__where">Best research and development at the regional national qualifier, April 2026.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= IDENTITY ================= -->
+    <section class="section section--paper" id="about">
+      <div class="wrap identity">
+        <div>
+          <p class="reveal-text" data-reveal-words>
+            We didn’t form Inferno Racing just to enter a competition. We treated STEM Racing as a full engineering and enterprise challenge. Plenty of teams run on enthusiasm. We decided structure would be our advantage.
+          </p>
+          <p class="lede muted" style="margin-top:28px">Grade 11 and 12 students representing The Shishukunj International School and the city of Indore, out to show younger students that STEM isn’t only something you study. It’s something you use.</p>
+        </div>
+        <div class="identity__notes">
+          <article class="card note" data-rise>
+            <h3>The name</h3>
+            <p>It started with The Flash. Not the red suit, but what sits underneath: controlled speed, backed by thinking. Inferno carries the same idea. Heat, energy, and power under control.</p>
+          </article>
+          <article class="card note" data-rise>
+            <h3>The colours</h3>
+            <p>A flame, read from the car outwards. Orange and yellow for the fire, black for the soot it leaves behind. The IR-11 is painted the same way, black to yellow to orange.</p>
+            <div class="palette" aria-label="Team colours">
+              <div style="background:#262424;color:#FFF6DE">Black<br>#262424</div>
+              <div style="background:#FA5B14">Orange<br>#FA5B14</div>
+              <div style="background:#F99527">Yellow<br>#F99527</div>
+              <div style="background:#FFF6DE">White<br>#FFF6DE</div>
             </div>
-            <div class="scroll-indicator">
-                <div class="mouse">
-                    <div class="wheel"></div>
-                </div>
-                <span>SCROLL TO EXPLORE</span>
+          </article>
+          <article class="card note jersey-card" data-rise>
+            <img src="assets/img/jersey.webp" alt="Inferno Racing team jersey in charcoal black with orange flames and sponsor logos" width="562" height="579" loading="lazy">
+            <div>
+              <h3>The jersey</h3>
+              <p>Charcoal base, a chequered flag down the sleeves, and our principal partners up front. Five people, one identity.</p>
             </div>
-        </section>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        <!-- 2. Car Design Section -->
-        <section class="car-design" id="car-design">
-            <div class="section-header">
-                <h2>THE <span class="highlight">MACHINE</span></h2>
+    <!-- ================= THE CAR ================= -->
+    <section class="section car" id="car">
+      <div class="wrap">
+        <div class="section__head">
+          <div>
+            <h2 class="display h-section">The IR-11</h2>
+            <p class="lede">Designed in Fusion 360, tested in CFD, machined on a CNC from a single STEM Racing model block. Scroll to walk around it.</p>
+          </div>
+          <svg class="star" aria-hidden="true"><use href="#star"/></svg>
+        </div>
+      </div>
+
+      <div class="car__pin">
+        <div class="wrap car__layout">
+          <div class="card car__viewer" data-car-viewer>
+            <div class="car__hud"><span class="view" data-car-view>Three-quarter</span><span class="car__dots" data-car-dots></span></div>
+            <figure class="car__frame" data-view="Three-quarter"><img src="assets/img/car-34.webp" alt="IR-11 from the front three-quarter" width="711" height="473" loading="lazy"></figure>
+            <figure class="car__frame" data-view="Side"><img src="assets/img/car-side-2.webp" alt="IR-11 side profile with Lenovo branding" width="953" height="277" loading="lazy"></figure>
+            <figure class="car__frame" data-view="Top"><img src="assets/img/car-top.webp" alt="IR-11 from above, showing the narrow nose and wide sidepods" width="706" height="274" loading="lazy"></figure>
+            <figure class="car__frame" data-view="Front"><img src="assets/img/car-front.webp" alt="IR-11 head-on, showing the front wing and halo" width="650" height="319" loading="lazy"></figure>
+            <figure class="car__frame" data-view="Rear"><img src="assets/img/car-rear.webp" alt="IR-11 from behind, showing the gas canister chamber and rear wing" width="484" height="359" loading="lazy"></figure>
+            <figure class="car__frame" data-view="Rear three-quarter"><img src="assets/img/car-34-b.webp" alt="IR-11 from the rear three-quarter" width="685" height="491" loading="lazy"></figure>
+            <span class="car__number" aria-hidden="true">14</span>
+          </div>
+
+          <ol class="specs" data-specs>
+            <li class="spec"><h3>Body <small>22 g</small></h3><p>Shark-inspired: a narrow front, wide midsection and tapered rear. G1-continuous surfaces checked with zebra analysis.</p></li>
+            <li class="spec"><h3>Nose cone <small>0.15 N</small></h3><p>High-nose idea from the 1992 Benetton B192, profile from a kingfisher’s beak. Lowest-drag of three designs.</p></li>
+            <li class="spec"><h3>Front wing <small>flat mainplane</small></h3><p>A simple, stable mainplane with endplates that keep lift-inducing vortices off the wheels.</p></li>
+            <li class="spec"><h3>Halo &amp; helmet <small>9.5 g</small></h3><p>Supplied parts bonded into a recess with no dimensional change, joined to the body with G1 continuity.</p></li>
+            <li class="spec"><h3>Rear wing <small>3.64 g</small></h3><p>Teardrop support structure. The V2 wing was over-built, so V3 was thinned towards a 1.5 target safety factor.</p></li>
+            <li class="spec"><h3>Wheels <small>V4</small></h3><p>Four iterations cut moment of inertia from 691 to 337, a 51% drop, while staying rigid under a 50 N load.</p></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <div class="card mass" data-mass>
+          <div class="mass__head">
+            <h3>Where the weight goes</h3>
+            <span class="mass__total"><span data-count="55.7" data-decimals="1">55.7</span> g</span>
+          </div>
+          <p class="muted" style="margin:6px 0 0">Thrust is fixed by the standard 8 g power pack, so mass is the one variable we control. Less mass, more exit speed.</p>
+          <div class="mass__bar" role="img" aria-label="Mass breakdown: body 22 grams, halo and helmet 9.5, nose cone 6.34, rear wheels 5, front wheels 4.2, rear wing 3.64, rear wheel support 2.61, front wheel support 2.39.">
+            <div class="mass__seg" data-g="22" style="background:#FA5B14">Body</div>
+            <div class="mass__seg" data-g="9.5" style="background:#F99527">Halo</div>
+            <div class="mass__seg" data-g="6.34" style="background:#FFF6DE">Nose</div>
+            <div class="mass__seg" data-g="5" style="background:#262424;color:#FFF6DE">R wheels</div>
+            <div class="mass__seg" data-g="4.2" style="background:#FA5B14">F wh.</div>
+            <div class="mass__seg" data-g="3.64" style="background:#F99527"></div>
+            <div class="mass__seg" data-g="2.61" style="background:#FFF6DE"></div>
+            <div class="mass__seg" data-g="2.39" style="background:#262424"></div>
+          </div>
+          <div class="mass__legend" aria-hidden="true">
+            <span><i style="background:#FA5B14"></i>Body 22 g</span>
+            <span><i style="background:#F99527"></i>Halo &amp; helmet 9.5 g</span>
+            <span><i style="background:#FFF6DE"></i>Nose cone 6.34 g</span>
+            <span><i style="background:#262424"></i>Rear wheels 5 g</span>
+            <span><i style="background:#FA5B14"></i>Front wheels 4.2 g</span>
+            <span><i style="background:#F99527"></i>Rear wing 3.64 g</span>
+            <span><i style="background:#FFF6DE"></i>Rear wheel support 2.61 g</span>
+            <span><i style="background:#262424"></i>Front wheel support 2.39 g</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ENGINEERING (horizontal) ================= -->
+    <section class="section eng" id="engineering">
+      <div class="wrap">
+        <div class="section__head">
+          <div>
+            <h2 class="display h-section">From sketch to start line</h2>
+            <p class="lede">Every decision is calculated and driven by data. Here’s how the IR-11 came together, one stage at a time.</p>
+          </div>
+          <svg class="star" aria-hidden="true" style="color:#FA5B14"><use href="#star"/></svg>
+        </div>
+      </div>
+
+      <div class="eng__pin">
+        <div class="eng__track" data-eng-track>
+          <article class="panel">
+            <div class="panel__media"><img src="assets/img/eng-wake.webp" alt="CFD velocity plot showing the low-pressure wake behind a rotating wheel" loading="lazy" width="1000" height="581"></div>
+            <div class="panel__body">
+              <span class="panel__num">01 Research</span>
+              <h3>Understand the forces first</h3>
+              <p>Before modelling anything we studied drag, the wheels’ moment of inertia, tipping moment and rolling resistance, and found the wake coming off the rotating wheels.</p>
+              <div class="panel__stats"><span class="stat-chip">Drag</span><span class="stat-chip">Moment of inertia</span><span class="stat-chip">Wheel wake</span></div>
             </div>
-            <div class="car-container">
-                <img src="assets/inferno_racing_car.png" alt="Inferno Racing Car" class="f1-car-img" />
+          </article>
 
-                <!-- Hotspots for components -->
-                <div class="part-info front-wing">
-                    <div class="line"></div>
-                    <div class="info-box">
-                        <h3>Front Wing</h3>
-                        <p>Aero-optimized wing designed to protect front wheels from drag.</p>
-                    </div>
-                </div>
-
-                <div class="part-info wheels">
-                    <div class="line"></div>
-                    <div class="info-box">
-                        <h3>Wheels & Suspension</h3>
-                        <p>ABS Processed wheels and carbon fibre wheels support system to ensure stability and speed.</p>
-                    </div>
-                </div>
-
-                <div class="part-info rear-wing">
-                    <div class="line"></div>
-                    <div class="info-box">
-                        <h3>Rear Wing</h3>
-                        <p>Dynamic carbon fiber construct for minimal drag.</p>
-                    </div>
-                </div>
+          <article class="panel">
+            <div class="panel__media panel__media--trio">
+              <figure><img src="assets/img/eng-shark.webp" alt="Shark outline: narrow front, wide midsection, tapered rear" loading="lazy"><figcaption>Shark</figcaption></figure>
+              <figure><img src="assets/img/eng-kingfisher.webp" alt="Kingfisher beak profile" loading="lazy"><figcaption>Kingfisher</figcaption></figure>
+              <figure><img src="assets/img/eng-benetton.webp" alt="1992 Benetton B192 Formula 1 car" loading="lazy"><figcaption>Benetton B192</figcaption></figure>
             </div>
-        </section>
-
-        <!-- 3. Engineering Portfolio -->
-        <section class="engineering" id="engineering">
-            <div class="section-header">
-                <h2>AERODYNAMICS & <span class="highlight">EVOLUTION</span></h2>
+            <div class="panel__body">
+              <span class="panel__num">02 Inspiration</span>
+              <h3>Borrowed from nature and F1</h3>
+              <p>The body follows a shark: narrow front, wide middle, tapered rear. The nose takes the kingfisher’s beak profile and the high-nose idea from the 1992 Benetton B192.</p>
+              <div class="panel__stats"><span class="stat-chip">Biomimicry</span><span class="stat-chip">Teardrop wing support</span></div>
             </div>
-            <div class="timeline">
-                <div class="timeline-line"></div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Phase 1: Concept</h3>
-                        <p>CFD analysis shaping the initial tub and monocoque design.</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Phase 2: Wind Tunnel</h3>
-                        <p>Identifying turbulence and optimizing bargeboards for flow separation.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Phase 3: Track Tests</h3>
-                        <p>Manufacturing the car through 3D printing</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Phase 4: Race Day</h3>
-                        <p>Final performance validation under race conditions, optimizing speed, stability, and
-                            reliability.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+          </article>
 
-        <!-- 4. Management & Strategy -->
-        <section class="management" id="management">
-            <div class="section-header">
-                <h2>RACE <span class="highlight">STRATEGY</span></h2>
+          <article class="panel">
+            <div class="panel__media"><img src="assets/img/eng-zebra.webp" alt="Zebra stripe analysis on the car body checking surface continuity" loading="lazy" width="568" height="479"></div>
+            <div class="panel__body">
+              <span class="panel__num">03 Car body</span>
+              <h3>Smooth enough for the air to stay on</h3>
+              <p>Zebra analysis showed where stripes broke at joints. We re-worked the nose-to-body and halo-to-body joins until the surfaces were G1 continuous.</p>
+              <div class="panel__stats"><span class="stat-chip">G1 continuity</span><span class="stat-chip">Fusion 360</span></div>
             </div>
-            <div class="cards-container">
-                <div class="card">
-                    <div class="card-icon">01</div>
-                    <h3>Sponsorships</h3>
-                    <p>Building high-value technical partnerships for mutual engineering growth.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">02</div>
-                    <h3>Budgeting</h3>
-                    <p>Cost cap management focusing R&D on high-yield aero developments.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">03</div>
-                    <h3>Marketing</h3>
-                    <p>Global brand presence through digital media.</p>
-                </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel__media panel__media--trio">
+              <figure><img src="assets/img/eng-nose-1.webp" alt="Nose cone design 1" loading="lazy"><figcaption>Design 1, 0.17 N</figcaption></figure>
+              <figure><img src="assets/img/eng-nose-2.webp" alt="Nose cone design 2" loading="lazy"><figcaption>Design 2, 0.17 N</figcaption></figure>
+              <figure><img src="assets/img/eng-nose-3.webp" alt="Nose cone design 3, the final choice" loading="lazy"><figcaption>Design 3, 0.15 N</figcaption></figure>
             </div>
-        </section>
-
-        <!-- 5. Team Section -->
-        <section class="team" id="team">
-            <div class="section-header">
-                <h2>THE <span class="highlight">ENGINEERS</span></h2>
+            <div class="panel__body">
+              <span class="panel__num">04 Nose cone</span>
+              <h3>Three designs, one winner</h3>
+              <p>Each nose cone went through FEA and CFD. Design 3 tunnels air under the car, had the lowest drag and a minimum safety factor of 12.1, so it went on the nationals car.</p>
+              <div class="panel__stats"><span class="stat-chip stat-chip--ink">0.15 N drag</span><span class="stat-chip">SF 12.1</span></div>
             </div>
-            <div class="team-grid">
-                <div class="team-member">
-                    <img src="assets/anay.jpeg" class="member-img" />
-                    <h3>Anay Mehta</h3>
-                    <p>Design Engineer</p>
-                </div>
-                <div class="team-member">
-                    <img src="assets/uv.jpeg" class="member-img" />
-                    <h3>Yuvraj Nikum</h3>
-                    <p>Manufacturing Engineer</p>
-                </div>
-                <div class="team-member">
-                    <img src="assets/daksh.jpeg" class="member-img" />
-                    <h3>Daksh Firoda</h3>
-                    <p>Research & Development</p>
-                </div>
-                <div class="team-member">
-                    <img src="assets/vishesh.jpeg" class="member-img" />
-                    <h3>Vishesh Dagra</h3>
-                    <p>Aerodynamics Engineer</p>
-                </div>
-                <div class="team-member">
-                    <img src="assets/ansh2.jpeg" class="member-img" />
-                    <h3>Ansh Agrawal</h3>
-                    <p>Sponsorship & Marketing Manager</p>
-                </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel__media"><img src="assets/img/eng-wing-3.webp" alt="CAD model of the final rear wing and its support" loading="lazy" width="700" height="279"></div>
+            <div class="panel__body">
+              <span class="panel__num">05 Rear wing</span>
+              <h3>Strong enough, and no stronger</h3>
+              <p>The V2 wing came back with a safety factor of 18.2, far more material than it needed. For V3 we thinned the wing and its support towards our 1.5 target to save mass.</p>
+              <div class="panel__stats"><span class="stat-chip">SF 18.2 → ~1.5</span><span class="stat-chip">3.64 g</span></div>
             </div>
-        </section>
+          </article>
 
-        <!-- 6. Sponsors -->
-        <section class="sponsors">
-            <div class="sponsor-track">
-                <div class="sponsor-logo">VELOCITY TECH</div>
-                <div class="sponsor-logo">APEX DYNAMICS</div>
-                <div class="sponsor-logo">QUANTUM AERO</div>
-                <div class="sponsor-logo">REDLINE ENERGY</div>
-                <div class="sponsor-logo">SYNERGY LABS</div>
-                <!-- Duplicate for infinite scroll effect -->
-                <div class="sponsor-logo">VELOCITY TECH</div>
-                <div class="sponsor-logo">APEX DYNAMICS</div>
-                <div class="sponsor-logo">QUANTUM AERO</div>
-                <div class="sponsor-logo">REDLINE ENERGY</div>
-                <div class="sponsor-logo">SYNERGY LABS</div>
+          <article class="panel">
+            <div class="panel__media"><img src="assets/img/eng-wheel-fea.webp" alt="FEA safety factor plot of a wheel in Fusion 360" loading="lazy" width="1000" height="575"></div>
+            <div class="panel__body">
+              <span class="panel__num">06 Wheels</span>
+              <h3>Lighter rims, faster starts</h3>
+              <p>A heavy rim fights acceleration. Four wheel iterations reshaped the spokes and thinned the rim until moment of inertia dropped by half, while still passing a 50 N load test.</p>
+              <div class="panel__stats"><span class="stat-chip stat-chip--ink">691 → 337 MOI</span><span class="stat-chip">−51%</span></div>
             </div>
-        </section>
+          </article>
 
-    </main>
+          <article class="panel">
+            <div class="panel__media"><img src="assets/img/eng-toolpath.webp" alt="Fusion 360 CNC toolpath simulation on the model block" loading="lazy" width="958" height="639"></div>
+            <div class="panel__body">
+              <span class="panel__num">07 CNC</span>
+              <h3>Toolpaths before tools</h3>
+              <p>Three setups (top, bottom and side milling) with a 3 mm ball-nose end mill, sized to the official model block. Fixing the bottom setup solved the sidepods our qualifier car couldn’t mill.</p>
+              <div class="panel__stats"><span class="stat-chip">≈ 3 h 35 m toolpaths</span><span class="stat-chip">3 setups</span></div>
+            </div>
+          </article>
 
-    <footer>
-        <p>&copy; 2026 Inferno Racing. Engineering Speed.</p>
-    </footer>
+          <article class="panel">
+            <div class="panel__media"><img src="assets/img/eng-streamlines.webp" alt="CFD streamline plot of air flowing smoothly over the final car" loading="lazy" width="1200" height="647"></div>
+            <div class="panel__body">
+              <span class="panel__num">08 Testing</span>
+              <h3>Proven in CFD and in the lab</h3>
+              <p>Full-car CFD at 22 m/s, streamlines staying attached over the body. Then a vernier calliper against the rulebook, a 200 g pull on the tether guides and a 3° incline roll test.</p>
+              <div class="panel__stats"><span class="stat-chip stat-chip--ink">0.69 → 0.35 N</span><span class="stat-chip">200 g tether test</span></div>
+            </div>
+          </article>
+        </div>
+        <div class="wrap"><div class="eng__progress" aria-hidden="true"><i data-eng-progress></i></div></div>
+      </div>
+    </section>
 
-    <script src="main.js"></script>
+    <!-- ================= DRAG + DRAWINGS ================= -->
+    <section class="section section--amber" id="drag">
+      <div class="wrap">
+        <div class="drag">
+          <div>
+            <p class="drag__big"><span data-count="49" data-suffix="%">49%</span><small>less drag than our first car</small></p>
+          </div>
+          <div class="drag__bars" data-drag>
+            <div class="drag__row"><b>V1</b><div class="drag__bar drag__bar--v1"><i>0.69 N</i></div></div>
+            <div class="drag__row"><b>IR-11</b><div class="drag__bar drag__bar--v3"><i>0.35 N</i></div></div>
+            <p style="margin:0;font-weight:600">Total drag force on the full car in CFD at 22 m/s.</p>
+          </div>
+        </div>
+
+        <div class="drawings" data-drawings>
+          <figure class="card drawing"><img src="assets/img/drawing-top.webp" alt="Engineering drawing: dimensioned top view of the IR-11" loading="lazy" width="1400" height="800"><figcaption>Top view, dimensioned to the technical regulations</figcaption></figure>
+          <figure class="card drawing"><img src="assets/img/drawing-section.webp" alt="Engineering drawing: section through the power unit cartridge chamber" loading="lazy" width="1400" height="800"><figcaption>Power unit chamber, safety zone section</figcaption></figure>
+          <figure class="card drawing"><img src="assets/img/drawing-exploded.webp" alt="Engineering drawing: exploded isometric view of every IR-11 component" loading="lazy" width="1400" height="800"><figcaption>Exploded isometric, drawn by Yuvraj Nikum</figcaption></figure>
+          <figure class="card drawing"><img src="assets/img/drawing-labelled.webp" alt="Engineering drawing: labelled isometric view of the IR-11" loading="lazy" width="1400" height="800"><figcaption>Labelled isometric of the national finals car</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= NUMBERS ================= -->
+    <section class="section section--paper" aria-label="Season in numbers">
+      <div class="wrap">
+        <div class="section__head"><h2 class="display h-sub">The season in numbers</h2></div>
+        <div class="numbers">
+          <div class="number"><b><span data-count="0.35" data-decimals="2">0.35</span> N</b><span>total drag on the IR-11</span></div>
+          <div class="number"><b><span data-count="55.7" data-decimals="1">55.7</span> g</b><span>car mass before the power pack</span></div>
+          <div class="number"><b><span data-count="51" data-suffix="%">51%</span></b><span>less wheel inertia than V1</span></div>
+          <div class="number"><b><span data-count="12.1" data-decimals="1">12.1</span></b><span>nose cone safety factor</span></div>
+          <div class="number"><b>₹<span data-count="75000" data-format>75,000</span></b><span>raised from 11 partners</span></div>
+          <div class="number"><b><span data-count="27892" data-format>27,892</span></b><span>accounts reached in 30 days</span></div>
+          <div class="number"><b><span data-count="8">8</span></b><span>deliverables, from two cars to a pit display</span></div>
+          <div class="number"><b><span data-count="271">271</span></b><span>days from kick-off to the national finals</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= LIGHTS OUT ================= -->
+    <section class="section lights" id="lights-out">
+      <div class="wrap">
+        <div class="section__head">
+          <div>
+            <h2 class="display h-section">Lights out</h2>
+            <p class="lede" style="color:#efe6d0">In this class of racing, the result is the car plus your reaction. So we built our own start-light trainer to practise. Try it.</p>
+          </div>
+          <svg class="star" aria-hidden="true" style="color:#FA5B14"><use href="#star"/></svg>
+        </div>
+
+        <div class="lights__layout">
+          <div>
+            <div class="rig" id="rig" role="application" aria-label="Reaction trainer. Press Start, wait for all five lights to go out, then press as fast as you can." aria-describedby="rig-msg">
+              <div class="rig__gantry" aria-hidden="true">
+                <div class="rig__pod"><i class="rig__bulb"></i><i class="rig__bulb"></i><i class="rig__bulb"></i><i class="rig__bulb"></i></div>
+                <div class="rig__pod"><i class="rig__bulb"></i><i class="rig__bulb"></i><i class="rig__bulb"></i><i class="rig__bulb"></i></div>
+                <div class="rig__pod"><i class="rig__bulb"></i><i class="rig__bulb"></i><i class="rig__bulb"></i><i class="rig__bulb"></i></div>
+                <div class="rig__pod"><i class="rig__bulb"></i><i class="rig__bulb"></i><i class="rig__bulb"></i><i class="rig__bulb"></i></div>
+                <div class="rig__pod"><i class="rig__bulb"></i><i class="rig__bulb"></i><i class="rig__bulb"></i><i class="rig__bulb"></i></div>
+              </div>
+              <div class="rig__readout">
+                <div class="rig__time" id="rig-time">0.000<small> s</small></div>
+                <div class="rig__msg" id="rig-msg" aria-live="polite">Press start, then tap or hit Space when the lights go out.</div>
+              </div>
+              <button class="btn rig__start" id="rig-start" type="button">Start</button>
+            </div>
+            <ul class="how-list">
+              <li>Five lights come on at uneven intervals, so you can’t count a rhythm.</li>
+              <li>The hold before lights out is random with an exponential spread up to 8 seconds. Guessing doesn’t pay.</li>
+              <li>Press too early and it’s logged as a jump start, just like a real false start.</li>
+            </ul>
+          </div>
+
+          <aside class="card board" style="color:var(--ink)">
+            <h3>Your session</h3>
+            <dl>
+              <dt>Best</dt><dd id="stat-best">–</dd>
+              <dt>Median</dt><dd id="stat-median">–</dd>
+              <dt>Runs</dt><dd id="stat-runs">0</dd>
+              <dt>Jump starts</dt><dd id="stat-jumps">0</dd>
+            </dl>
+            <ol id="stat-log" aria-label="Recent reaction times"></ol>
+            <p class="hint muted">We look at the median, not the best. One quick run is luck; a good median is a habit. Works with a keyboard, a tap or a game controller.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SEASON ================= -->
+    <section class="section season section--paper" id="season">
+      <div class="wrap">
+        <div class="section__head">
+          <div>
+            <h2 class="display h-section">The season</h2>
+            <p class="lede">Ten months from a kick-off meeting at school to the national finals in Chennai.</p>
+          </div>
+          <svg class="star" aria-hidden="true"><use href="#star"/></svg>
+        </div>
+
+        <div class="season__track" data-season>
+          <svg class="season__svg" aria-hidden="true" preserveAspectRatio="none" data-season-svg>
+            <path data-road d="" fill="none" stroke="#262424" stroke-width="14" stroke-linecap="round"/>
+            <path data-road-dash d="" fill="none" stroke="#FFF6DE" stroke-width="3" stroke-dasharray="10 12"/>
+            <path data-road-fill d="" fill="none" stroke="#FA5B14" stroke-width="8" stroke-linecap="round"/>
+          </svg>
+          <img class="season__car" src="assets/img/car-top.webp" alt="" data-season-car width="706" height="274">
+
+          <article class="card stop"><time datetime="2025-10-15">15 Oct 2025</time><h3>Team registered</h3><p>Five of us, one entry into STEM Racing India, Season 08.</p></article>
+          <article class="card stop"><time datetime="2025-11-11">11 Nov 2025</time><h3>Kick-off &amp; charter</h3><p>Roles assigned by strength, and a project charter all five of us signed.</p></article>
+          <article class="card stop"><time datetime="2026-01-05">5 Jan 2026</time><h3>Design freeze</h3><p>Final CAD approved after CFD concept selection and the first toolpaths.</p></article>
+          <article class="card stop stop--win"><time datetime="2026-04-03">3 Apr 2026</time><h3>National qualifier: Best R&amp;D</h3><p>Qualified for nationals and took the Best R&amp;D award.</p></article>
+          <article class="card stop"><time datetime="2026-05-30">30 May 2026</time><h3>Nationals confirmed</h3><p>Ten weeks to re-validate in CFD, redo the CAM and rebuild both cars.</p></article>
+          <article class="card stop"><time datetime="2026-07-18">18 Jul 2026</time><h3>New cars machined</h3><p>Both modified cars back from the machinist, then finishing and assembly.</p></article>
+          <article class="card stop"><time datetime="2026-08-04">4 Aug 2026</time><h3>Portfolios in</h3><p>Design &amp; Engineering, Enterprise and Management portfolios submitted.</p></article>
+          <article class="card stop stop--final"><time datetime="2026-08-09">9 Aug 2026</time><h3>National finals, Chennai</h3><p>Best Verbal Presentation, and the 4th fastest car in India.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ENTERPRISE ================= -->
+    <section class="section" id="enterprise">
+      <div class="wrap">
+        <div class="section__head">
+          <div>
+            <h2 class="display h-section">Partners who backed us</h2>
+            <p class="lede">Every partner got exposure proportional to what they put in, and we tracked it. Thank you to everyone who fuelled the fire.</p>
+          </div>
+          <svg class="star" aria-hidden="true"><use href="#star"/></svg>
+        </div>
+
+        <div class="ent__top">
+          <div class="card card--orange kpi" data-rise><b>₹<span data-count="75000" data-format>75,000</span></b><span>raised in sponsorship</span></div>
+          <div class="card kpi" data-rise><b><span data-count="11">11</span></b><span>partners across six tiers</span></div>
+          <div class="card card--amber kpi" data-rise><b>₹<span data-count="30000" data-format>30,000</span></b><span>build budget, kept deliberately lean</span></div>
+        </div>
+
+        <div class="tiers">
+          <div class="card tier tier--principal" data-tier>
+            <div class="tier__label"><h3>Principal</h3><span>₹15,000 each</span></div>
+            <div class="tier__logos">
+              <figure class="logo-tile"><img src="assets/img/sp-royal-enfield.webp" alt="Royal Enfield" loading="lazy"></figure>
+              <figure class="logo-tile"><img src="assets/img/sp-lenovo.webp" alt="Lenovo" loading="lazy"></figure>
+            </div>
+          </div>
+          <div class="card tier tier--monetary" data-tier>
+            <div class="tier__label"><h3>Monetary</h3><span>₹10,000 each</span></div>
+            <div class="tier__logos">
+              <figure class="logo-tile"><img src="assets/img/sp-shishukunj.webp" alt="The Shishukunj International School, Indore" loading="lazy"></figure>
+              <figure class="logo-tile"><img src="assets/img/sp-airen.webp" alt="Airen International" loading="lazy"></figure>
+              <figure class="logo-tile"><img src="assets/img/sp-chopada.webp" alt="Chopada Motors" loading="lazy"></figure>
+            </div>
+          </div>
+          <div class="card tier tier--aid" data-tier>
+            <div class="tier__label"><h3>Aid</h3><span>₹5,000 each</span></div>
+            <div class="tier__logos">
+              <figure class="logo-tile logo-tile--text">Balaji<br>Group</figure>
+              <figure class="logo-tile"><img src="assets/img/sp-tekzee.webp" alt="Tekzee Technologies" loading="lazy"></figure>
+              <figure class="logo-tile"><img src="assets/img/sp-zevar.webp" alt="Zevar by Sethis" loading="lazy"></figure>
+            </div>
+          </div>
+          <div class="card tier tier--kind" data-tier>
+            <div class="tier__label"><h3>In kind</h3><span>Tools, impact, fuel</span></div>
+            <div class="tier__logos">
+              <figure class="logo-tile"><img src="assets/img/sp-ansys.webp" alt="Ansys" loading="lazy"><figcaption>Analysis partner</figcaption></figure>
+              <figure class="logo-tile"><img src="assets/img/sp-raah.webp" alt="Raah Foundation" loading="lazy"><figcaption>Sustainability partner</figcaption></figure>
+              <figure class="logo-tile"><img src="assets/img/sp-agrawal.webp" alt="Shri Agrawal Sweets and Namkeen" loading="lazy"><figcaption>Food &amp; beverages</figcaption></figure>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="logo-marquee" aria-hidden="true">
+        <div class="logo-marquee__track" data-logo-marquee>
+          <img src="assets/img/sp-royal-enfield.webp" alt=""><img src="assets/img/sp-lenovo.webp" alt=""><img src="assets/img/sp-ansys.webp" alt=""><img src="assets/img/sp-shishukunj.webp" alt=""><img src="assets/img/sp-airen.webp" alt=""><img src="assets/img/sp-chopada.webp" alt=""><img src="assets/img/sp-tekzee.webp" alt=""><img src="assets/img/sp-zevar.webp" alt=""><img src="assets/img/sp-raah.webp" alt=""><img src="assets/img/sp-agrawal.webp" alt=""><img src="assets/img/stem-racing.webp" alt="">
+        </div>
+      </div>
+
+      <div class="wrap">
+        <div class="outreach">
+          <article class="card outreach__card" data-rise>
+            <h3>Reach</h3>
+            <p>Nearly 28,000 accounts reached in a month from twenty posts, against a target of 10,000. Design reveals, CNC footage and team spotlights, cut like the videos people already watch.</p>
+            <div class="bars" aria-label="Audience by age">
+              <div><span>18–24</span><i style="--w:93%"></i><span>46.5%</span></div>
+              <div><span>25–34</span><i style="--w:40.8%"></i><span>20.4%</span></div>
+              <div><span>13–17</span><i style="--w:31.6%"></i><span>15.8%</span></div>
+              <div><span>35–44</span><i style="--w:21.2%"></i><span>10.6%</span></div>
+            </div>
+            <p style="margin:14px 0 0;font-weight:600">51.1% of our audience are women. 34.3% are from Indore.</p>
+          </article>
+          <article class="card outreach__card card--cream" data-rise>
+            <h3>Giving back</h3>
+            <p>With Raah Foundation we ran tree plantation and donation drives and visited orphanages to share what STEM can do.</p>
+            <div class="sus-list">
+              <div><b>≈50</b><span>trees planted</span></div>
+              <div><b>≈200</b><span>items donated</span></div>
+              <div><b>≈40</b><span>volunteer hours</span></div>
+              <div><b>2</b><span>car prototypes saved by CFD-first design</span></div>
+            </div>
+            <div class="photo-strip">
+              <img src="assets/img/sus-team.webp" alt="Team members volunteering with Raah Foundation" loading="lazy" width="700" height="933">
+              <img src="assets/img/sus-kids.webp" alt="Group photo with children during an orphanage visit" loading="lazy" width="700" height="933">
+              <img src="assets/img/sus-plant.webp" alt="Planting a sapling during a tree plantation drive" loading="lazy" width="700" height="933">
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TEAM ================= -->
+    <section class="section section--orange" id="team">
+      <div class="wrap">
+        <div class="section__head">
+          <div>
+            <h2 class="display h-section">The crew</h2>
+            <p class="lede">No captain, no chain of command. Every major decision only moved once all five of us agreed.</p>
+          </div>
+          <svg class="star" aria-hidden="true"><use href="#star"/></svg>
+        </div>
+
+        <div class="team__deck" data-deck>
+          <article class="card member">
+            <span class="member__num">01</span>
+            <div class="member__photo"><img src="assets/img/team-anay.webp" alt="Anay Mehta in the Inferno Racing jersey" loading="lazy" width="249" height="312"></div>
+            <div class="member__body"><h3>Anay Mehta</h3><span class="member__role">Design Engineer</span><p>CAD in Fusion 360. Turns wild concepts into sleek, aerodynamic parts that can actually be machined.</p></div>
+          </article>
+          <article class="card member">
+            <span class="member__num">02</span>
+            <div class="member__photo"><img src="assets/img/team-yuvraj.webp" alt="Yuvraj Nikum in the Inferno Racing jersey" loading="lazy" width="640" height="800"></div>
+            <div class="member__body"><h3>Yuvraj Nikum</h3><span class="member__role">Manufacturing &amp; Marketing</span><p>CAM toolpaths, CNC liaison and engineering drawings, plus the social feed that told our story.</p></div>
+          </article>
+          <article class="card member">
+            <span class="member__num">03</span>
+            <div class="member__photo"><img src="assets/img/team-daksh.webp" alt="Daksh Firoda in the Inferno Racing jersey" loading="lazy" width="622" height="777"></div>
+            <div class="member__body"><h3>Daksh Firoda</h3><span class="member__role">R&amp;D Engineer</span><p>Research, component testing and benchmarking. Hunts performance until fast looks like the baseline.</p></div>
+          </article>
+          <article class="card member">
+            <span class="member__num">04</span>
+            <div class="member__photo"><img src="assets/img/team-vishesh.webp" alt="Vishesh Dagra in the Inferno Racing jersey next to a racing car" loading="lazy" width="640" height="800"></div>
+            <div class="member__body"><h3>Vishesh Dagra</h3><span class="member__role">Computational Engineer</span><p>CFD and simulations. Works out how the car really behaves long before it touches the track.</p></div>
+          </article>
+          <article class="card member">
+            <span class="member__num">05</span>
+            <div class="member__photo"><img src="assets/img/team-ansh.webp" alt="Ansh Agrawal in the Inferno Racing jersey" loading="lazy" width="583" height="728"></div>
+            <div class="member__body"><h3>Ansh Agrawal</h3><span class="member__role">Sponsorship Manager</span><p>Sponsor outreach, proposals and partnerships. Turns attention into backing for the team.</p></div>
+          </article>
+        </div>
+
+        <figure class="card group" data-group>
+          <img src="assets/img/team-group.webp" alt="The five members of Inferno Racing sitting together on steps" loading="lazy" width="1800" height="1012">
+          <figcaption><span>Inferno Racing, Season 08</span><span>The Shishukunj International School, Indore</span></figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="wrap">
+      <p class="footer__words" aria-label="Design. Develop. Dominate.">
+        <span data-slide="-1">Design.</span>
+        <span data-slide="1">Develop.</span>
+        <span data-slide="-1">Dominate.</span>
+      </p>
+      <div class="footer__grid">
+        <div>
+          <h3>Inferno Racing</h3>
+          <p>Team IR-11, STEM Racing India Season 08. Grade 11 and 12 students from The Shishukunj International School, Indore.</p>
+          <div class="footer__logos" style="margin-top:16px">
+            <img src="assets/img/logo.webp" alt="Inferno Racing logo" loading="lazy">
+            <img src="assets/img/stem-racing.webp" alt="STEM Racing" loading="lazy">
+          </div>
+        </div>
+        <div>
+          <h3>Follow</h3>
+          <ul>
+            <li><a href="https://www.instagram.com/infernoracingofficial/" target="_blank" rel="noopener">Instagram: @infernoracingofficial</a></li>
+            <li><a href="https://github.com/AnayMehta976/Infero-Racing" target="_blank" rel="noopener">Source code on GitHub</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Jump to</h3>
+          <ul>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#engineering">Engineering</a></li>
+            <li><a href="#lights-out">Lights Out trainer</a></li>
+            <li><a href="#enterprise">Partners</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__base"><span>© 2026 Inferno Racing</span><span>Design. Develop. Dominate.</span></div>
+    </div>
+  </footer>
+
+  <script src="assets/vendor/gsap.min.js" defer></script>
+  <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/vendor/lenis.min.js" defer></script>
+  <script src="js/lights-out.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
-
 </html>

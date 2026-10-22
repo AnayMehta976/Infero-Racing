@@ -1,177 +1,202 @@
-# 🔥 Inferno Racing
+<div align="center">
 
-> **Engineering Speed. Igniting Innovation.**
+<img src="assets/img/og.jpg" alt="Inferno Racing IR-11 car with a flame trail on an orange background" width="100%">
 
-[![Live Site](https://img.shields.io/badge/Live%20Site-infero--racing.vercel.app-ff2a00?style=for-the-badge&logo=vercel&logoColor=white)](https://infero-racing.vercel.app)
-[![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=black)](https://greensock.com/gsap/)
+# Inferno Racing
 
----
+### Design. Develop. Dominate.
 
-## 📖 Overview
+**Team IR-11 · STEM Racing India, Season 08 · The Shishukunj International School, Indore**
 
-**Inferno Racing** is a high-performance racing team showcase website built to represent the team's engineering excellence, car design, aerodynamics development process, race strategy, and roster of engineers. The site features a dark, aggressive motorsport aesthetic with smooth scroll animations, parallax effects, and interactive UI elements — all crafted with vanilla HTML, CSS, and JavaScript.
+[![Live site](https://img.shields.io/badge/Live%20site-infero--racing.vercel.app-FA5B14?style=for-the-badge&logo=vercel&logoColor=white)](https://infero-racing.vercel.app)
+[![Instagram](https://img.shields.io/badge/Instagram-@infernoracingofficial-262424?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/infernoracingofficial/)
 
----
-
-## ✨ Features
-
-- **Custom Cursor** — A dual-layer cursor (dot + follower ring) that reacts to hoverable elements with a smooth GSAP-powered lag effect.
-- **Parallax Hero Section** — Full-bleed background image with scroll-driven parallax and fade-out title animation via GSAP ScrollTrigger.
-- **Interactive Car Showcase** — An annotated image of the Inferno Racing car with animated hotspot callouts for the Front Wing, Wheels & Suspension, and Rear Wing.
-- **Engineering Timeline** — A 4-phase scroll-animated timeline covering Concept → Wind Tunnel → Track Tests → Race Day.
-- **Race Strategy Cards** — Three animated strategy cards covering Sponsorships, Budgeting, and Marketing.
-- **Team Grid** — Scroll-revealed team member profiles with grayscale-to-color photo transitions on hover.
-- **Infinite Sponsor Ticker** — A looping horizontal marquee of sponsor logos powered by GSAP.
-- **Smooth Scrolling** — Lenis smooth scroll library integrated with GSAP's requestAnimationFrame loop.
-- **Carbon Fiber Background** — CSS radial-gradient pattern simulating a carbon fiber texture across the entire page.
-- **Glassmorphism Navbar** — Fixed navigation bar with backdrop blur, scroll transparency, and a Sponsors CTA button.
+</div>
 
 ---
 
-## 🛠️ Tech Stack
+## 🏆 Results
 
-| Technology | Purpose |
-|---|---|
-| **HTML5** | Page structure and semantic markup |
-| **CSS3** | Styling, layout (Grid & Flexbox), animations, custom properties |
-| **Vanilla JavaScript** | Cursor logic, event handling, animation orchestration |
-| **[GSAP 3.12](https://greensock.com/gsap/)** | Scroll-triggered animations, tweens, timelines |
-| **[GSAP ScrollTrigger](https://greensock.com/scrolltrigger/)** | Viewport-aware animation triggers tied to scroll position |
-| **[Lenis](https://github.com/studio-freight/lenis)** | Smooth, inertia-based scroll behaviour |
-| **[Google Fonts](https://fonts.google.com/)** | Syncopate (headings) · Inter (body text) |
-| **[Vercel](https://vercel.com/)** | Hosting and continuous deployment |
+| Award | Event |
+|:------|:------|
+| 🥇 **Best Verbal Presentation** | National Finals, Chennai, 9 Aug 2026 |
+| 🏁 **4th Fastest Car in India** | National Finals, Chennai, 9 Aug 2026 |
+| 🔬 **Best R&D** | National Qualifier (Regionals), 3 Apr 2026 |
 
 ---
 
-## 📁 Project Structure
+## 📑 Contents
 
-```
-Infero-Racing/
-├── assets/
-│   ├── hero_background.png       # Hero section background image
-│   ├── inferno_racing_car.png    # Main car showcase image
-│   ├── anay.jpeg                 # Team member photo
-│   ├── uv.jpeg                   # Team member photo
-│   ├── daksh.jpeg                # Team member photo
-│   ├── vishesh.jpeg              # Team member photo
-│   └── ansh2.jpeg                # Team member photo
-├── index.html                    # Main HTML document
-├── style.css                     # All styles and CSS variables
-└── main.js                       # GSAP animations, Lenis scroll, cursor logic
-```
+1. [About the team](#-about-the-team)
+2. [The car: IR-11](#-the-car-ir-11)
+3. [Engineering highlights](#-engineering-highlights)
+4. [Enterprise](#-enterprise)
+5. [Team](#-team)
+6. [The website](#-the-website)
+7. [Run it locally](#-run-it-locally)
+8. [Project structure](#-project-structure)
+9. [Deployment](#-deployment)
 
 ---
 
-## 🚀 Getting Started
+## 🔥 About the team
 
-No build tools or dependencies are required. This is a pure static site.
+Inferno Racing is a team of five grade 11 and 12 students from **The Shishukunj International School, Indore**, competing in **STEM Racing India** (formerly F1 in Schools). We treated the competition as a full engineering and enterprise challenge: CAD, CFD and CNC on one side, and sponsorship, budgeting, marketing and project management on the other.
 
-### Run Locally
+- **The name** comes from The Flash. Not the red suit, but the controlled, analytical speed underneath. Inferno means the same thing to us: heat, energy and power under control.
+- **The colours** come from a flame. Orange and yellow are the fire, and black is the soot it leaves behind.
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/AnayMehta976/Infero-Racing.git
-   cd Infero-Racing
-   ```
-
-2. **Open in browser:**
-   - Simply open `index.html` in any modern browser, **or**
-   - Use a local server for best results (avoids CORS issues with assets):
-
-   ```bash
-   # Using VS Code Live Server (recommended)
-   # Install the "Live Server" extension and click "Go Live"
-
-   # Or using Python
-   python -m http.server 8000
-   # Then visit http://localhost:8000
-   ```
+| Black | Orange | Yellow | White |
+|:-----:|:------:|:------:|:-----:|
+| `#262424` | `#FA5B14` | `#F99527` | `#FFF6DE` |
 
 ---
 
-## 🎨 Design System
+## 🏎️ The car: IR-11
 
-| Token | Value | Usage |
-|---|---|---|
-| `--bg-dark` | `#0a0a0a` | Page background |
-| `--text-main` | `#f0f0f0` | Primary text |
-| `--text-muted` | `#888888` | Secondary / caption text |
-| `--accent-red` | `#ff2a00` | Primary accent, borders, highlights |
-| `--accent-orange` | `#ff6600` | Secondary accent, hover states |
-| `--accent-yellow` | `#ffcc00` | Timeline dots, card labels |
-| `--font-heading` | `'Syncopate'` | All headings, logo, nav |
-| `--font-body` | `'Inter'` | Body copy, descriptions |
+Designed in **Fusion 360**, simulated with **CFD**, and machined on a **CNC** from a single official STEM Racing model block.
 
----
+| | |
+|:--|:--|
+| **Total drag** | **0.35 N** in CFD at 22 m/s, down from 0.69 N on our first car (**−49%**) |
+| **Mass** | **55.7 g** before the power pack |
+| **Nose cone** | Design 3 of 3: 0.15 N drag, minimum safety factor 12.1 |
+| **Wheels** | V4: moment of inertia cut from 691 to 337 (**−51%**), passing a 50 N load test |
+| **Body** | Shark-inspired shape, G1-continuous surfaces verified with zebra analysis |
+| **Inspiration** | Shark (body), kingfisher beak (nose profile), 1992 Benetton B192 (high nose), water droplet (rear-wing support) |
 
-## 📐 Sections
+<details>
+<summary><b>Mass breakdown</b></summary>
 
-### 1. Hero
-Full-screen section with a parallax background, large gradient title, and an animated scroll indicator. The title fades and shifts upward as the user scrolls down.
+| Part | Mass |
+|:-----|-----:|
+| Car body | 22 g |
+| Halo & helmet | 9.5 g |
+| Nose cone | 6.34 g |
+| Rear wheels (2) | 5 g |
+| Front wheels (2) | 4.2 g |
+| Rear wing | 3.64 g |
+| Rear wheel support | 2.61 g |
+| Front wheel support | 2.39 g |
+| **Total** | **≈ 55.7 g** |
 
-### 2. The Machine
-An interactive car diagram with three annotated component callouts — **Front Wing**, **Wheels & Suspension**, and **Rear Wing** — each fading in with a spring-easing effect as the user scrolls into view.
-
-### 3. Aerodynamics & Evolution
-A centered vertical timeline documenting the car's development through four phases:
-- **Phase 1 – Concept:** CFD analysis and monocoque design
-- **Phase 2 – Wind Tunnel:** Turbulence identification and bargeboard optimization
-- **Phase 3 – Track Tests:** 3D-printed manufacturing and physical validation
-- **Phase 4 – Race Day:** Final performance validation under race conditions
-
-### 4. Race Strategy
-Three strategy cards covering the team's off-track operations: Sponsorships, Budgeting, and Marketing. Cards animate upward on scroll with a staggered delay.
-
-### 5. The Engineers
-A responsive grid showcasing the five core team members with role labels. Photos are displayed in grayscale and reveal full color on hover.
-
-| Name | Role |
-|---|---|
-| Anay Mehta | Design Engineer |
-| Yuvraj Nikum | Manufacturing Engineer |
-| Daksh Firoda | Research & Development |
-| Vishesh Dagra | Aerodynamics Engineer |
-| Ansh Agrawal | Sponsorship & Marketing Manager |
-
-### 6. Sponsors
-An infinitely scrolling horizontal ticker featuring sponsor logos (Velocity Tech, Apex Dynamics, Quantum Aero, Redline Energy, Synergy Labs).
+</details>
 
 ---
 
-## 🌐 Deployment
+## 🔬 Engineering highlights
 
-The site is deployed on **Vercel** with automatic deployments triggered on every push to the `main` branch.
+1. **Research:** drag, wheel moment of inertia, tipping moment, rolling resistance and wheel wake.
+2. **Design inspiration:** biomimicry and F1 history (shark, kingfisher, Benetton B192).
+3. **Car body:** zebra analysis to reach G1 continuity at the nose-to-body and halo-to-body joins.
+4. **Nose cone:** three designs tested in FEA and CFD; the lowest-drag one went on the nationals car.
+5. **Rear wing:** the V2 wing had a safety factor of 18.2, so V3 was thinned towards a 1.5 target to save mass.
+6. **Wheels:** four iterations to cut inertia while staying rigid.
+7. **CNC:** three setups (top, bottom and side milling) with a 3 mm ball-nose end mill, about 3 h 35 min of toolpaths.
+8. **Testing:** full-car CFD and streamlines, then vernier calliper checks, a 200 g tether-guide pull test and a 3° incline roll test.
 
-**Live URL:** [https://infero-racing.vercel.app](https://infero-racing.vercel.app)
+We also built **Lights Out**, a start-light reaction trainer that the whole team used to practise race starts. A playable version is on the website.
 
-To deploy your own fork:
-1. Fork this repository
-2. Import the repo into [Vercel](https://vercel.com/new)
-3. Deploy — no build configuration needed (static site)
+---
+
+## 💼 Enterprise
+
+**₹75,000 raised from 11 partners**, against a deliberately lean **₹30,000** build budget.
+
+| Tier | Partners |
+|:-----|:---------|
+| **Principal** (₹15,000 each) | Royal Enfield, Lenovo |
+| **Monetary** (₹10,000 each) | The Shishukunj International School, Airen International, Chopada Motors |
+| **Aid** (₹5,000 each) | Balaji Group, Tekzee Technologies, Zevar by Sethis |
+| **Analysis partner** (in kind) | Ansys |
+| **Sustainability partner** (in kind) | Raah Foundation |
+| **Food & beverages** (in kind) | Shri Agrawal Sweets & Namkeen |
+
+- **Reach:** about 28,000 accounts reached in 30 days from 20 Instagram posts (target: 10,000). 51.1% of the audience are women.
+- **Sustainability:** with Raah Foundation, about 50 trees planted, about 200 items donated and about 40 volunteer hours. Designing in CFD first saved two physical car prototypes.
 
 ---
 
 ## 👥 Team
 
-| Member | Role | GitHub |
-|---|---|---|
-| **Anay Mehta** | Design Engineer & Web Developer | [@AnayMehta976](https://github.com/AnayMehta976) |
-| **Yuvraj Nikum** | Manufacturing Engineer | — |
-| **Daksh Firoda** | Research & Development | — |
-| **Vishesh Dagra** | Aerodynamics Engineer | — |
-| **Ansh Agrawal** | Sponsorship & Marketing Manager | — |
+| Member | Role |
+|:-------|:-----|
+| **Anay Mehta** | Design Engineer: CAD modelling in Fusion 360, component design, renders |
+| **Yuvraj Nikum** | Manufacturing & Marketing: CAM toolpaths, CNC liaison, engineering drawings, social media |
+| **Daksh Firoda** | R&D Engineer: design research, component testing, benchmarking |
+| **Vishesh Dagra** | Computational Engineer: CFD setup, simulations, wing optimisation |
+| **Ansh Agrawal** | Sponsorship Manager: sponsor outreach, proposals, partnerships |
 
 ---
 
-## 📄 License
+## 🌐 The website
 
-This project is open source and available under the [MIT License](LICENSE).
+A single-page site with scroll-driven animations, built to match our portfolio branding.
+
+- **Start lights intro:** five red lights, then lights out (plays once per visit).
+- **Hero:** the car launches off the screen on a flame trail as you scroll.
+- **Results:** award cards stamp down onto the page.
+- **The car:** scroll to turn the IR-11 through six render angles, with its specs highlighting in sync.
+- **Engineering:** a horizontal pit-lane scroll through all eight stages.
+- **Drag and drawings:** the drag bar halves as you scroll, and the engineering drawings fan out.
+- **Lights Out:** a playable reaction trainer (keyboard, tap or game controller).
+- **The season:** a car drives down a race-track timeline from kick-off to the national finals.
+- **Partners and team:** tiers slide in, the logo ticker speeds up with your scroll, and team cards deal out like a hand of cards.
+
+It works on phones, and it respects the **reduce motion** accessibility setting.
+
+| Layer | Technology |
+|:------|:-----------|
+| Markup & styles | HTML, CSS (no build step) |
+| Animation | [GSAP 3.12](https://gsap.com/) + ScrollTrigger |
+| Smooth scrolling | [Lenis](https://github.com/darkroomengineering/lenis) |
+| Fonts | Anton (headings, as in our portfolios), Archivo, Archivo Narrow |
+| Hosting | [Vercel](https://vercel.com/) |
+
+All libraries and fonts are stored in `assets/`, so the site has no outside dependencies.
 
 ---
 
-<p align="center">
-  <strong>© 2026 Inferno Racing — Engineering Speed.</strong>
-</p>
+## 💻 Run it locally
+
+No build tools are needed.
+
+```bash
+git clone https://github.com/AnayMehta976/Infero-Racing.git
+cd Infero-Racing
+python3 -m http.server 8000
+```
+
+Then open <http://localhost:8000>.
+
+---
+
+## 📁 Project structure
+
+```
+Infero-Racing/
+├── index.html            # The whole page
+├── css/
+│   └── style.css         # Design tokens, layout, responsive rules
+├── js/
+│   ├── main.js           # Scroll animations (GSAP, ScrollTrigger, Lenis)
+│   └── lights-out.js     # The Lights Out reaction trainer
+└── assets/
+    ├── img/              # Car renders, team photos, sponsor logos, CFD and CAD images (WebP)
+    ├── fonts/            # Anton, Archivo, Archivo Narrow (WOFF2)
+    └── vendor/           # GSAP, ScrollTrigger, Lenis
+```
+
+---
+
+## 🚀 Deployment
+
+The site deploys automatically to **[infero-racing.vercel.app](https://infero-racing.vercel.app)** on every push to `main`. It's a static site, so no build settings are needed.
+
+---
+
+<div align="center">
+
+**© 2026 Inferno Racing.** Team photos, renders, drawings and sponsor logos belong to their owners.
+
+</div>
