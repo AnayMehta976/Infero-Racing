@@ -387,6 +387,14 @@ button { font: inherit; color: inherit; }
 .eng__progress { margin-top: 36px; height: 10px; border: 2px solid var(--cream); border-radius: 999px; overflow: hidden; }
 .eng__progress i { display: block; height: 100%; background: var(--orange); transform-origin: left; transform: scaleX(0); }
 
+/* Desktop pit lane: size panels to the screen height so they clear the nav bar */
+@media (min-width: 900px) {
+  .eng__pin .panel { height: clamp(380px, calc(100svh - 230px), 640px); }
+  .eng__pin .panel__media { aspect-ratio: auto; flex: 1 1 0; min-height: 0; }
+  .eng__pin .panel__body { flex: none; }
+  .eng__pin .eng__progress { margin-top: 24px; }
+}
+
 /* Drag comparison */
 .drag { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(24px, 4vw, 56px); align-items: center; }
 .drag__bars { display: grid; gap: 18px; }
@@ -450,7 +458,7 @@ button { font: inherit; color: inherit; }
 .season { position: relative; }
 .season__track { position: relative; display: grid; gap: clamp(26px, 4vw, 44px); padding-left: 0; }
 .season__svg { position: absolute; left: 50%; top: 0; height: 100%; width: 120px; transform: translateX(-50%); overflow: visible; pointer-events: none; }
-.season__car { position: absolute; left: 50%; top: 0; width: 64px; height: auto; translate: -50% -50%; rotate: 90deg; z-index: 3; filter: drop-shadow(2px 3px 0 var(--ink)); pointer-events: none; }
+.season__car { position: absolute; left: 50%; top: 0; width: 64px; height: auto; translate: -50% -50%; rotate: 270deg; z-index: 3; filter: drop-shadow(2px 3px 0 var(--ink)); pointer-events: none; }
 .stop { position: relative; width: calc(50% - 70px); padding: 18px 20px; }
 .stop:nth-child(odd) { justify-self: start; }
 .stop:nth-child(even) { justify-self: end; }
@@ -503,7 +511,7 @@ button { font: inherit; color: inherit; }
 .team__deck { position: relative; display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(12px, 1.6vw, 20px); }
 .member { position: relative; overflow: hidden; display: flex; flex-direction: column; background: var(--white); transform-origin: 50% 120%; }
 .member__photo { aspect-ratio: 4 / 5; overflow: hidden; border-bottom: var(--bw) solid var(--ink); background: var(--amber); }
-.member__photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.member__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 12%; transition: transform .5s ease; }
 .member:hover .member__photo img { transform: scale(1.05); }
 .member__body { padding: 14px 14px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
 .member__body h3 { font-family: var(--display); text-transform: uppercase; font-size: 1.55rem; line-height: .95; margin: 0; }

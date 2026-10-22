@@ -198,12 +198,12 @@
       var engTween = gsap.to(track, {
         x: function () { return -dist(); }, ease: "none",
         scrollTrigger: {
-          trigger: ".eng__pin", start: "center center", end: function () { return "+=" + dist(); },
+          trigger: ".eng__pin", start: "center center+=40", end: function () { return "+=" + dist(); },
           pin: ".eng", pinSpacing: true, scrub: 0.8, anticipatePin: 1, invalidateOnRefresh: true
         }
       });
       gsap.to("[data-eng-progress]", { scaleX: 1, ease: "none",
-        scrollTrigger: { trigger: ".eng__pin", start: "center center", end: function () { return "+=" + dist(); }, scrub: true } });
+        scrollTrigger: { trigger: ".eng__pin", start: "center center+=40", end: function () { return "+=" + dist(); }, scrub: true } });
       gsap.utils.toArray(".panel").forEach(function (p) {
         gsap.from(p.querySelector(".panel__media img"), {
           scale: 1.25, rotation: 3, ease: "none",
@@ -400,7 +400,7 @@
       var left = svgBox.left - trackBox.left + p.x * (svgBox.width / 120);
       car.style.left = left + "px";
       car.style.top = p.y * scaleY + "px";
-      car.style.rotate = ang + "deg";
+      car.style.rotate = ang + 180 + "deg"; // the render faces the other way, so turn it nose-first
     }
 
     ScrollTrigger.create({
