@@ -122,10 +122,10 @@ We also built **Lights Out**, a start-light reaction trainer that the whole team
 
 | Member | Role |
 |:-------|:-----|
-| **Anay Mehta** | Design & Manufacturing Engineer: CAD in Fusion 360, design iterations, CAM and CNC toolpaths, overseeing manufacturing, renders |
+| **Anay Mehta** | Design & Manufacturing Engineer: CAD in Fusion 360, design iterations, CAM and CNC toolpaths, overseeing manufacturing |
 | **Yuvraj Nikum** | Marketing Manager: branding, social media, joint owner of planning, budget, portfolios and the verbal presentation |
-| **Daksh Firoda** | R&D Engineer: design research, component testing, benchmarking, QA and regulation compliance |
-| **Ansh Agrawal** | Sponsorship Manager: sponsor outreach, proposals, partnerships |
+| **Daksh Firoda** | R&D Engineer: design research, component testing, benchmarking, QA and regulation compliance, 3D renders |
+| **Ansh Agrawal** | Sponsorship Manager: sponsor outreach and proposals, ₹75,000 raised from 11 partners, sponsor and school liaison, pit display, enterprise portfolio |
 | **Vishesh Dagra** | Computational Analysis Engineer: CFD setup, simulations, wing optimisation, engineering drawings |
 
 ---
